@@ -13,16 +13,16 @@ const Scan = ({ navigation }) => {
 
     React.useEffect(() => {
         (async () => {
-          const { status } = await Camera.requestPermissionsAsync();
+          const { status } = await Camera.requestCameraPermissionsAsync();
           setHasPermission(status === 'granted');
         })();
       }, []);
 
     if (hasPermission === null) {
-    return <View />;
+        return <View />;
     }
     if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
+        return <Text>No access to camera</Text>;
     }
     
     
